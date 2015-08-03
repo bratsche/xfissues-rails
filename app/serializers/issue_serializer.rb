@@ -1,5 +1,3 @@
-class IssueListSerializer < ActiveModel::Serializer
-  attributes :id, :title
-
-  has_one :location
+class IssueSerializer < ActiveModel::Serializer
+  attributes :id, :subject, :description, :location_id, :photo_url
 end

@@ -1,4 +1,5 @@
 class Api::IssuesController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   respond_to :json
 
   def index
@@ -8,8 +9,14 @@ class Api::IssuesController < ApplicationController
   end
 
   def create
-    @issue = Issue.create!(params[:issue])
+    @issue = Issue.create!(issue_params)
 
     render json: @issue, serializer: IssueSerializer
+  end
+
+  private
+
+  def issue_params
+    params.permit(:subject, :description, :location_id)
   end
 end

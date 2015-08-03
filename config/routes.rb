@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   namespace 'api', as: :api do
-    resources :issues, only: [:index, :create]
+    resources :locations, only: [:index]
+    resources :issues, only: [:index, :create] do
+      resource :photo, only: [:create]
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

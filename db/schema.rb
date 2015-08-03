@@ -14,7 +14,8 @@
 ActiveRecord::Schema.define(version: 20150723184729) do
 
   create_table "issues", force: :cascade do |t|
-    t.string   "title"
+    t.string   "subject"
+    t.string   "description"
     t.integer  "user_id"
     t.integer  "location_id"
     t.datetime "created_at",  null: false
